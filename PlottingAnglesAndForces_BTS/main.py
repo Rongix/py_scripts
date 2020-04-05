@@ -26,7 +26,6 @@ import fnmatch
 import numpy as np
 import matplotlib.pyplot as plt
 
-interactive = False
 AngleDataFrames = []
 ForceDataFrames = []
 
