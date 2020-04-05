@@ -103,7 +103,13 @@ def meanOfDataFrames(listOfFrames):
     arrAverage = np.zeros(
         (listOfFrames[0].shape[0], listOfFrames[0].shape[1], len(listOfFrames)))
     for i, data in enumerate(listOfFrames):
-        arrAverage[:, :, i] = data
+        try:
+            arrAverage[:, :, i] = data
+        except Exception as x:
+            print(data)
+            print("Plik {0} posiada inną liczbę kolumn niż przewidywana. Error Exit".format(
+                ForceFiles[i]))
+            exit(-1)
     return pd.DataFrame(data=np.nanmean(arrAverage, axis=2), columns=columnList)
 
 
